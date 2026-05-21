@@ -10,6 +10,7 @@
 #include <set>
 #include <queue>
 #include <sstream>
+#include <map>
 using namespace std;
 
-void print_alphabetical(map mbin);
+void print_alphabetical(map<string, int> mbin);

@@ -14,6 +14,7 @@
 #include <queue>
 #include <sstream>
 #include <movies.h>
+#include <map>
 using namespace std;
 
 #include "utilities.h"
