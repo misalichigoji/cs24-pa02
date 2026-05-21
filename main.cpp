@@ -13,6 +13,7 @@
 #include <set>
 #include <queue>
 #include <sstream>
+#include <movies.h>
 using namespace std;
 
 #include "utilities.h"

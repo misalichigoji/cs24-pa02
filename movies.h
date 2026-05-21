@@ -1,1 +1,3 @@
-print_alphabetical(map mbin);
+
+
+void print_alphabetical(map mbin);
