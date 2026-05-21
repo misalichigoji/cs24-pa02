@@ -35,6 +35,7 @@ int main(int argc, char** argv){
     }
   
     // Create an object of a STL data-structure to store all the movies
+    map<string, int> mbin;
 
     string line, movieName;
     double movieRating;
@@ -44,6 +45,9 @@ int main(int argc, char** argv){
             // to construct your Movie objects
             // cout << movieName << " has rating " << movieRating << endl;
             // insert elements into your data structure
+            cout << movieName << " has rating " << movieRating << endl;
+            mbin.insert({movieName, movieRating});
+
     }
 
     movieFile.close();
