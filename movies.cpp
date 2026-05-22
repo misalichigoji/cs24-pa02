@@ -47,3 +47,5 @@ string print_prefix(string prefix, map<string, double> mbin)
     }
     return greatest;
 }
+
+string doubleCast(const)
