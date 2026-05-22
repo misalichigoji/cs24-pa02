@@ -37,7 +37,7 @@ int main(int argc, char** argv){
     }
   
     // Create an object of a STL data-structure to store all the movies
-    map<string, int> mbin;
+    map<string, double> mbin;
 
     string line, movieName;
     double movieRating;
