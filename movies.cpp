@@ -39,13 +39,17 @@ string print_prefix(string prefix, map<string, double> mbin)
             premovie.push({movie.second, movie.first});
     }
     if(!premovie.empty())
-        greatest = premovie.top().second + " with rating " + format("{}", premovie.top().first);
+        greatest = premovie.top().second + " with rating " + castStr(premovie.top().first);
     while(!premovie.empty())
     {
-        cout << premovie.top().second << ", " << format("{}", premovie.top().first) << endl;
+        cout << premovie.top().second << ", " << castStr(premovie.top().first) << endl;
         premovie.pop();
     }
     return greatest;
 }
 
-string doubleCast(const)
+string castStr(double val) {
+    ostringstream oss;
+    oss << val;
+    return oss.str();
+}
