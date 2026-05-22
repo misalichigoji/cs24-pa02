@@ -17,6 +17,7 @@ void print_prefixes(vector<string> prefixes, map<string, double> mbin)
     for(int i = 0; i < size; i++)
     {
         largest_prefix.push_back(print_prefix(prefixes[i], mbin));
+        if(!largest_prefix[i].empty())
         cout << endl;
     }
     for(int i = 0; i < size; i++)
