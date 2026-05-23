@@ -10,24 +10,14 @@ void print_alphabetical(map<string, double> mbin)
 
 void print_prefixes(vector<string> prefixes, map<string, double> mbin)
 {
-    vector<string> largest_prefix;
-    int size = prefixes.size();
-
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < prefixes.size(); i++)
     {
-        largest_prefix.push_back(print_prefix(prefixes[i], mbin));
+        string highest = print_prefix(prefixes[i], mbin);
 
-        if(!largest_prefix[i].empty())
-            cout << endl;
-    }
-
-    for(int i = 0; i < size; i++)
-    {
-        if(largest_prefix[i].empty())
+        if(highest.empty())
             cout << "No movies found with prefix " << prefixes[i] << endl;
         else
-            cout << "Best movie with prefix " << prefixes[i]
-                 << " is: " << largest_prefix[i] << endl;
+            cout << "Best movie with prefix " << prefixes[i] << " is: " << highest << endl;
     }
 }
 
