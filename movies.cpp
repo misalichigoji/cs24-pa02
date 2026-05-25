@@ -1,6 +1,6 @@
 #include "movies.h"
 
-void print_alphabetical(map<string, double> mbin)
+void print_alphabetical(const map<string, double>& mbin)
 {
     for(auto movie : mbin) //since std::map is automatically sorted in ascending order this should be alphabetical order
     {
@@ -8,30 +8,27 @@ void print_alphabetical(map<string, double> mbin)
     }
 }
 
-void print_prefixes(vector<string> prefixes, map<string, double> mbin)
+void print_prefixes(const vector<string>& prefixes, const map<string, double>& mbin)
 {
     vector<string> largest_prefix;
-    int size = prefixes.size();
 
-    for(int i = 0; i < size; i++)
-    {
-        largest_prefix.push_back(print_prefix(prefixes[i], mbin));
+    for (const string& prefix : prefixes) {
+        string largest = print_prefix(prefix, mbin);
+        largest_prefix.push_back(largest);
 
-        if(!largest_prefix[i].empty())
+        if (largest.empty()) 
+            cout << "No movies found with prefix " << prefix << endl;
+        if (!largest.empty()) 
             cout << endl;
     }
 
-    for(int i = 0; i < size; i++)
-    {
-        if(largest_prefix[i].empty())
-            cout << "No movies found with prefix " << prefixes[i] << endl;
-        else
-            cout << "Best movie with prefix " << prefixes[i]
-                 << " is: " << largest_prefix[i] << endl;
+    for (int i = 0; i < prefixes.size(); i++) {
+        if (!largest_prefix[i].empty()) 
+            cout << "Best movie with prefix " << prefixes[i] << " is: " << largest_prefix[i] << endl;
     }
 }
 
-string print_prefix(string prefix, map<string, double> mbin)
+string print_prefix(const string& prefix, const map<string, double>& mbin)
 {
     struct Compare {
         bool operator()(const pair<double,string>& a, const pair<double,string>& b)
@@ -52,26 +49,18 @@ string print_prefix(string prefix, map<string, double> mbin)
     string greatest;
     int plength = prefix.length();
 
-    for(auto movie : mbin)
+    for(const auto& movie : mbin)
     {
         if(movie.first.compare(0, plength, prefix) == 0)
             premovie.push({movie.second, movie.first});
     }
 
     if(!premovie.empty())
-    {
-        greatest = premovie.top().second
-                 + " with rating "
-                 + castStr(premovie.top().first);
-    }
+        greatest = premovie.top().second + " with rating " + castStr(premovie.top().first);
 
     while(!premovie.empty())
     {
-        cout << premovie.top().second
-             << ", "
-             << castStr(premovie.top().first)
-             << endl;
-
+        cout << premovie.top().second << ", " << castStr(premovie.top().first) << endl;
         premovie.pop();
     }
 

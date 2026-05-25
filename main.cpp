@@ -18,7 +18,6 @@
 using namespace std;
 
 #include "utilities.h"
-#include "movies.h"
 
 bool parseLine(string &line, string &movieName, double &movieRating);
 

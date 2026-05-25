@@ -15,7 +15,7 @@
 
 using namespace std;
 
-void print_alphabetical(map<string, double> mbin);
-void print_prefixes(vector<string> prefixes, map<string, double> mbin);
-string print_prefix(string prefix, map<string, double> mbin);
+void print_alphabetical(const map<string, double>& mbin);
+void print_prefixes(const vector<string>& prefixes, const map<string, double>& mbin);
+string print_prefix(const string& prefix, const map<string, double>& mbin);
 string castStr(double val);
